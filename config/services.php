@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'azure' => [
+        'client_id' => env('AZURE_CLIENT_ID'),
+        'client_secret' => env('AZURE_CLIENT_SECRET'),
+        'redirect' => env('AZURE_REDIRECT_URI')
+    ],
+
+    'webex' => [
+        'client_id' => env('WEBEX_CLIENT_ID'),
+        'client_secret' => env('WEBEX_CLIENT_SECRET'),
+        'redirect' => env('WEBEX_REDIRECT_URI')
+    ],
+
 ];

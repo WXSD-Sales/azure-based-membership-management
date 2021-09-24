@@ -12,7 +12,8 @@
         "laravel/sanctum": "^2.11",
         "laravel/telescope": "^4.6",
         "laravel/tinker": "^2.5",
-        "socialiteproviders/microsoft-azure": "^4.2"
+        "socialiteproviders/microsoft-azure": "^4.2",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

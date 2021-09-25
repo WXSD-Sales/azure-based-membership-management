@@ -20,8 +20,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         SocialiteWasCalled::class => [
-            'App\\SocialiteProviders\\Webex\\WebexExtendSocialite@handle',
             'SocialiteProviders\\Azure\\AzureExtendSocialite@handle',
+            'SocialiteProviders\\Webex\\WebexExtendSocialite@handle',
         ],
     ];
 

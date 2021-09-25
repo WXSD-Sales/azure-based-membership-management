@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac3f1f2ba99f0bad68781d0154f3cf2c",
+    "content-hash": "23b0a544019c7b4068aa4bb95b4580fe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3021,6 +3021,56 @@
                 "source": "https://github.com/SocialiteProviders/Microsoft-Azure/tree/4.2.1"
             },
             "time": "2021-06-14T22:51:38+00:00"
+        },
+        {
+            "name": "socialiteproviders/webex",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Webex.git",
+                "reference": "f152159bf883dd4d89b44b77101c0b084ebb9a51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Webex/zipball/f152159bf883dd4d89b44b77101c0b084ebb9a51",
+                "reference": "f152159bf883dd4d89b44b77101c0b084ebb9a51",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2 || ^8.0",
+                "socialiteproviders/manager": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Webex\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ashesh Singh",
+                    "email": "ask@mrsinh.com"
+                }
+            ],
+            "description": "Webex Oauth2 Provider for Laravel Socialite",
+            "keywords": [
+                "laravel",
+                "oauth",
+                "provider",
+                "socialite",
+                "webex"
+            ],
+            "support": {
+                "docs": "https://socialiteproviders.com/webex",
+                "issues": "https://github.com/socialiteproviders/providers/issues",
+                "source": "https://github.com/socialiteproviders/providers"
+            },
+            "time": "2021-09-25T05:43:47+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8125,7 +8175,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

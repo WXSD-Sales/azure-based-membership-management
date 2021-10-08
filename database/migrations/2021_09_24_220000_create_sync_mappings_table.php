@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupMappingsTable extends Migration
+class CreateSyncMappingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateGroupMappingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('group_mappings', function (Blueprint $table) {
+        Schema::create('sync_mappings', function (Blueprint $table) {
             $table->id();
             $table->string('azure_group_id');
-            $table->string('webex_group_id')->nullable();
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
+            $table->string('webex_group_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('azure_group_id')->references('id')->on('azure_groups')
@@ -27,10 +26,7 @@ class CreateGroupMappingsTable extends Migration
             $table->foreign('webex_group_id')->references('id')->on('webex_groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->foreign('created_by')->references('email')->on('users')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
-            $table->foreign('updated_by')->references('email')->on('users')
+            $table->foreign('user_id')->references('id')->on('users')
                 ->cascadeOnUpdate()
                 ->nullOnDelete();
         });
@@ -43,6 +39,6 @@ class CreateGroupMappingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_mappings');
+        Schema::dropIfExists('sync_mappings');
     }
 }

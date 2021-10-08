@@ -14,13 +14,23 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name')->nullable();
+            $table->id();
             $table->string('email')->unique()->index();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('name')->nullable();
+            $table->string('azure_user_id');
+            $table->string('webex_user_id');
+            $table->enum('role', ['superadmin', 'admin']);
             $table->string('password')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('azure_user_id')->references('id')->on('azure_users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->foreign('webex_user_id')->references('id')->on('webex_users')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
         });
     }
 

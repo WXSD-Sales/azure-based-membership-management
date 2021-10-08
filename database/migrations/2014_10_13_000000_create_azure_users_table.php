@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAzureGroupsTable extends Migration
+class CreateAzureUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateAzureGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('azure_groups', function (Blueprint $table) {
+        Schema::create('azure_users', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->string('name')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('synced_at');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAzureGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('azure_groups');
+        Schema::dropIfExists('azure_users');
     }
 }

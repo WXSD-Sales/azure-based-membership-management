@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\RetrieveWebexUsers;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -48,6 +49,18 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth.login');
+        $super_admin_exists = User::where('role', 'superadmin')->exists();
+
+        if (!$super_admin_exists) {
+            return redirect('/setup');
+        }
+
+        return view('auth.login', ['url' => [
+            'setup' => route('setup', [], false),
+            'reset' => route('reset', [], false),
+            'email' => route('auth.email', [], false),
+            'azure' => route('auth.azure', [], false),
+            'webex' => route('auth.webex', [], false),
+        ]]);
     }
 }

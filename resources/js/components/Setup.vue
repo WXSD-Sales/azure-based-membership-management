@@ -1,15 +1,6 @@
 <template>
     <section>
-        <div class="hero is-medium is-link">
-            <div class="hero-body">
-                <h1 class="title is-size-1">
-                    Setup Azure to Webex Group Sync
-                </h1>
-                <p class="subtitle">
-                    Sync your Microsoft Azure Active Directory groups to Cisco Webex Control Hub.
-                </p>
-            </div>
-        </div>
+        <auth-hero />
         <div class="columns is-centered is-mobile my-1 py-6">
             <div class="column is-four-fifths">
                 <!-- Email -->
@@ -248,8 +239,13 @@
 </template>
 
 <script>
+import AuthHero from './common/AuthHero'
+
 export default {
     name: 'Setup',
+    components: {
+        AuthHero
+    },
     props: {
         csrf: {
             type: String,

@@ -53,17 +53,17 @@ class RetrieveAzureUsers implements ShouldQueue
                 $date = $response->header('date');
                 $link = $response['@odata.nextLink'] ?? $response['@odata.deltaLink'];
                 $timestamp = Carbon::createFromFormat(DateTimeInterface::RFC7231, $date);
-                $add_users = array_filter($response['value'], function ($item) {
+                $upsert_users = array_filter($response['value'], function ($item) {
                     return !array_key_exists('@removed', $item);
                 });
-                $del_users = array_filter($response['value'], function ($item) {
+                $delete_users = array_filter($response['value'], function ($item) {
                     return array_key_exists('@removed', $item);
                 });
-                $del_user_ids = array_map(function ($item) {
+                $delete_user_ids = array_map(function ($item) {
                     return $item['id'];
-                }, $del_users);
+                }, $delete_users);
 
-                AzureUser::destroy(array_intersect($del_user_ids, $local_ids));
+                AzureUser::destroy(array_intersect($delete_user_ids, $local_ids));
 
                 $azure_users = array_map(function ($user) use ($timestamp) {
                     return [
@@ -73,7 +73,7 @@ class RetrieveAzureUsers implements ShouldQueue
                         'email' => $user['userPrincipalName'],
                         'synced_at' => $timestamp
                     ];
-                }, $add_users);
+                }, $upsert_users);
 
                 AzureUser::upsert($azure_users, ['id'], ['name', 'email', 'synced_at']);
 
@@ -83,7 +83,7 @@ class RetrieveAzureUsers implements ShouldQueue
             }
         } while ($response->successful() && !empty($response['value']));
 
-        // TODO: Handle edge case where old delted users are present in table
+        // TODO: Handle edge case where old deleted users are present in table
         //       but not using delta link.
         // TODO: Mechanism to avoid rate limiting.
     }

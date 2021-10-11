@@ -1,4 +1,6 @@
-const mix = require('laravel-mix');
+// noinspection JSUnresolvedFunction
+
+const mix = require('laravel-mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -11,7 +13,18 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix
+    .sass('resources/sass/app.scss', 'public/css')
+    .js('resources/js/app.js', 'public/js').vue()
+    .browserSync({ proxy: 'localhost', open: false })
+
+require('laravel-mix-eslint')
+mix.eslint({ fix: true, extensions: ['js', 'vue'] })
+
+if (!mix.inProduction()) {
+    mix.extract()
+    mix.sourceMaps()
+}
+if (mix.inProduction()) {
+    mix.version()
+}

@@ -21,6 +21,8 @@ class CreateWebexGroupWebexUserTable extends Migration
             $table->timestamp('synced_at');
             $table->timestamps();
 
+            $table->unique(['webex_group_id', 'webex_user_id']);
+
             $table->foreign('webex_group_id')->references('id')->on('webex_groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

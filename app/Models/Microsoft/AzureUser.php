@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -21,9 +22,9 @@ use Illuminate\Support\Str;
  * @property Carbon $synced_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Collection|\App\Models\Microsoft\AzureGroup[] $groups
+ * @property-read Collection|AzureGroup[] $groups
  * @property-read int|null $groups_count
- * @property-read Collection|\App\Models\Microsoft\AzureMembership[] $memberships
+ * @property-read Collection|AzureMembership[] $memberships
  * @property-read int|null $memberships_count
  * @property-read OAuth|null $oauth
  * @property-read User|null $user
@@ -37,10 +38,12 @@ use Illuminate\Support\Str;
  * @method static Builder|AzureUser whereSyncedAt($value)
  * @method static Builder|AzureUser whereUpdatedAt($value)
  * @mixin Eloquent
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read int|null $notifications_count
  */
 class AzureUser extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $keyType = 'string';
 

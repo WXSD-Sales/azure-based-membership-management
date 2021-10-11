@@ -37,6 +37,17 @@ class SyncMapping extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+        'azure_group_id',
+        'webex_group_id',
+        'user_id'
+    ];
+
     public function azureGroup()
     {
         return $this->belongsTo(AzureGroup::class);

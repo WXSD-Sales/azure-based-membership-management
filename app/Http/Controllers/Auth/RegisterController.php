@@ -49,6 +49,10 @@ class RegisterController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    public static $azureScopes = ['.default', 'offline_access'];
+
+    public static $webexScopes = ['spark-admin:people_read', 'spark:kms'];
+
     /**
      * Create a new controller instance.
      *
@@ -64,7 +68,11 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        abort_if(User::where('role', 'superadmin')->exists(), 403, 'Setup is complete.');
+        $super_admin_exists = User::where('role', 'superadmin')->exists();
+
+        if ($super_admin_exists) {
+            return redirect('/login');
+        }
 
         return view('auth.setup', ['url' => [
             'setup' => route('setup', [], false),
@@ -120,7 +128,7 @@ class RegisterController extends Controller
         abort_if($request->session()->exists('azure'), 403);
 
         return Socialite::driver('azure')
-            ->setScopes(['.default', 'offline_access'])
+            ->setScopes(self::$azureScopes)
             ->redirect();
     }
 
@@ -134,7 +142,7 @@ class RegisterController extends Controller
         abort_if($request->session()->exists('webex'), 403);
 
         return Socialite::driver('webex')
-            ->setScopes(['spark-admin:people_read', 'spark:kms'])
+            ->setScopes(self::$webexScopes)
             ->redirect();
     }
 

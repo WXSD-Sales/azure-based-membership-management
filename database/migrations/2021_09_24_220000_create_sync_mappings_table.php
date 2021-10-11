@@ -20,6 +20,8 @@ class CreateSyncMappingsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
+            $table->unique(['azure_group_id', 'webex_group_id']);
+
             $table->foreign('azure_group_id')->references('id')->on('azure_groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

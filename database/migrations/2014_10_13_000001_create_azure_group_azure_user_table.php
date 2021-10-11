@@ -21,6 +21,8 @@ class CreateAzureGroupAzureUserTable extends Migration
             $table->timestamp('synced_at');
             $table->timestamps();
 
+            $table->unique(['azure_group_id', 'azure_user_id']);
+
             $table->foreign('azure_group_id')->references('id')->on('azure_groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();

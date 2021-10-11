@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
  * App\Models\OAuth
  *
  * @property string $id
- * @property Model|\Eloquent $provider
+ * @property Model|Eloquent $provider
  * @property string $email
  * @property string $access_token
  * @property Carbon $expires_at
@@ -44,7 +44,6 @@ class OAuth extends Model
     protected $keyType = 'string';
 
     public $incrementing = false;
-
 
     /**
      * The attributes that are mass assignable.

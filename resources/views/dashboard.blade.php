@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-{{--Vue Router--}}
+<dashboard></dashboard>
 @endsection

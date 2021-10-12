@@ -14,16 +14,37 @@ use Illuminate\Support\Facades\Log;
 class JobsController extends Controller
 {
 
-    public function refreshAzureToken()
+//    public function refreshAzureToken()
+//    {
+//        Log::info('refreshAzureToken');
+//        RefreshAzureToken::dispatch();
+//    }
+
+//    public function refreshWebexToken()
+//    {
+//        Log::info('refreshWebexToken');
+//        RefreshWebexToken::dispatch();
+//    }
+    public function retrieveAzureGroups()
     {
-        Log::info('refreshAzureToken');
-        RefreshAzureToken::dispatch();
+        Log::info('retrieveAzureGroups');
+        RetrieveAzureGroups::dispatch();
+    }
+    public function retrieveAzureUsers()
+    {
+        Log::info('retrieveAzureUsers');
+        RetrieveAzureUsers::dispatchSync();
     }
 
-    public function refreshWebexToken()
+    public function retrieveWebexUsers()
     {
-        Log::info('refreshWebexToken');
-        RefreshWebexToken::dispatch();
+        Log::info('retrieveWebexUsers');
+        RetrieveWebexUsers::dispatch();
+    }
+    public function retrieveWebexGroups()
+    {
+        Log::info('retrieveWebexGroups');
+        RetrieveWebexGroups::dispatch();
     }
 
     public function performCrossSync()
@@ -32,27 +53,4 @@ class JobsController extends Controller
         PerformCrossSync::dispatch();
     }
 
-    public function retrieveAzureGroups()
-    {
-        Log::info('retrieveAzureGroups');
-        RetrieveAzureGroups::dispatch();
-    }
-
-    public function retrieveAzureUsers()
-    {
-        Log::info('retrieveAzureUsers');
-        RetrieveAzureUsers::dispatch();
-    }
-
-    public function retrieveWebexUsers()
-    {
-        Log::info('retrieveWebexUsers');
-        RetrieveWebexUsers::dispatch();
-    }
-
-    public function retrieveWebexGroups()
-    {
-        Log::info('retrieveWebexGroups');
-        RetrieveWebexGroups::dispatch();
-    }
 }

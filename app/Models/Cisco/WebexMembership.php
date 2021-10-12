@@ -6,6 +6,7 @@ use Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Carbon;
 
 
@@ -33,7 +34,7 @@ use Illuminate\Support\Carbon;
  * @method static Builder|WebexMembership whereWebexUserId($value)
  * @mixin Eloquent
  */
-class WebexMembership extends Model
+class WebexMembership extends Pivot
 {
     use HasFactory;
 

@@ -74,6 +74,6 @@ class AzureGroup extends Model
     public function users()
     {
         return $this->belongsToMany(AzureUser::class)
-            ->withPivot('is_owner', 'synced_at');
+            ->using(AzureMembership::class);
     }
 }

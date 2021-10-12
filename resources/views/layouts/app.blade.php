@@ -161,7 +161,7 @@
     </div>
 </section>
 
-<main id="app" class="{{ Request::is('setup') || Request::is('login') ? '' : 'container is-fluid' }}">
+<main id="app">
     @yield('content')
 </main>
 

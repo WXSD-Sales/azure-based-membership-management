@@ -72,7 +72,7 @@ class WebexUser extends Model
     public function groups()
     {
         return $this->belongsToMany(WebexGroup::class)
-            ->withPivot('is_moderator', 'synced_at');
+            ->using(WebexMembership::class);
     }
 
     public function oauth()

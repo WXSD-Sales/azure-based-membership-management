@@ -60,7 +60,7 @@ class PerformCrossSync implements ShouldQueue
 
             // webex group exists
             if (isset($sync_mapping)) {
-                Log::info("mapping exists!");
+                Log::info("[Job] Cross group mapping exists for Azure Group`$azure_group->name` ($azure_group->id).");
                 $webex_api_resource = '/team/memberships';
                 $azure_group_user_emails = $azure_group
                     ->users()
@@ -82,10 +82,11 @@ class PerformCrossSync implements ShouldQueue
                             'teamId' => $sync_mapping->webex_group_id,
                             'personEmail' => $add_user_email
                         ]);
+                        $sync_mapping->touch();
                     }
                 }
             } else {
-                Log::info("mapping doesn't exists!");
+                Log::info("[Job] Cross group mapping doesn't exist for Azure Group `$azure_group->name!` ($azure_group->id).");
                 DB::transaction(function () use ($webex_user_emails, $azure_group, $client) {
                     $webex_api_resource = '/teams';
                     $teams_response = $client->post($webex_api_resource, [
@@ -93,6 +94,7 @@ class PerformCrossSync implements ShouldQueue
                     ]);
 
                     if ($teams_response->successful()) {
+                        Log::info("[Job] Created Webex Group `{$teams_response['name']}` ({$teams_response['id']}).");
                         $teamId = $teams_response['id'];
                         $date = $teams_response->header('date');
                         $timestamp = Carbon::createFromFormat(DateTimeInterface::RFC7231, $date);
@@ -120,6 +122,7 @@ class PerformCrossSync implements ShouldQueue
                                 $timestamp = Carbon::createFromFormat(DateTimeInterface::RFC7231, $date);
 
                                 if ($response->successful()) {
+                                    Log::info("[Job] Added $azure_group_user_email to Webex Group `{$teams_response['name']}` ({$teams_response['id']}).");
                                     $this->upsertWebexMembership($response, $webex_group, $timestamp);
                                 }
                             }

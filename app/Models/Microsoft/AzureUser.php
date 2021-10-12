@@ -71,7 +71,7 @@ class AzureUser extends Model
     public function groups()
     {
         return $this->belongsToMany(AzureGroup::class)
-            ->withPivot('role', 'synced_at');
+            ->using(AzureMembership::class);
     }
 
     public function oauth()

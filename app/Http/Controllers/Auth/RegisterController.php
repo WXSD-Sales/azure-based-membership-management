@@ -76,6 +76,7 @@ class RegisterController extends Controller
 
         return view('auth.setup', ['url' => [
             'setup' => route('setup', [], false),
+            'login' => route('login', [], false),
             'reset' => route('reset', [], false),
             'email' => route('auth.email', [], false),
             'azure' => route('auth.azure', [], false),

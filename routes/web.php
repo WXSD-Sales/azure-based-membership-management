@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +16,55 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::name('home')->get('/', [
-    App\Http\Controllers\HomeController::class,
+    HomeController::class,
     'index'
 ]);
+Route::name('dashboard')->get('/dashboard', [
+    DashboardController::class,
+    'index'
+]);
+
+Route::name('sync-mappings')->get('/sync-mappings', [
+    DashboardController::class,
+    'getSyncMappings'
+]);
+
+Route::name('azure-sync-mappings')->get('/azure-sync-mappings', [
+    DashboardController::class,
+    'getAzureSyncMappings'
+]);
+
+Route::name('webex-sync-mappings')->get('/webex-sync-mappings', [
+    DashboardController::class,
+    'getWebexSyncMappings'
+]);
+
+Route::name('webex-groups')->get('/webex-groups', [
+    DashboardController::class,
+    'getWebexGroups'
+]);
+
+Route::name('azure-groups')->get('/azure-groups', [
+    DashboardController::class,
+    'getAzureGroups'
+]);
+
+Route::name('azure-users')->get('/azure-users', [
+    DashboardController::class,
+    'getAzureUsers'
+]);
+
+Route::name('webex-users')->get('/webex-users', [
+    DashboardController::class,
+    'getWebexUsers'
+]);
+
 
 Route::name('setup')->get('/setup', [
     App\Http\Controllers\Auth\RegisterController::class,
     'showRegistrationForm'
 ]);
+
 Route::post('/setup', [
     App\Http\Controllers\Auth\RegisterController::class,
     'register'
@@ -103,3 +146,5 @@ Route::get('/auth/webex/callback', [
     App\Http\Controllers\Auth\RegisterController::class,
     'webexOauthCallback'
 ]);
+
+

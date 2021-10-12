@@ -31,15 +31,8 @@ require('./bootstrap')
 Vue.component('AuthHero', require('./components/common/AuthHero.vue').default)
 Vue.component('Setup', require('./components/Setup.vue').default)
 Vue.component('Login', require('./components/Login.vue').default)
+Vue.component('Dashboard', require('./components/Dashboard.vue').default)
 Vue.component('ExampleComponent', require('./components/ExampleComponent.vue').default)
-
-Vue.prototype.$apiBackend = window.axios.create({
-    timeout: 60000,
-    headers: {
-        Accept: 'application/vnd.api+json,application/json',
-        'Content-Type': 'application/vnd.api+json'
-    }
-})
 
 Vue.use(VueRouter)
 export const router = new VueRouter({

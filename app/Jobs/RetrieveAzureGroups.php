@@ -141,7 +141,7 @@ class RetrieveAzureGroups implements ShouldQueue
     }
 }
 
-// TODO: Handle edge case where old deleted users are present in table
-//       but not using delta link.
-// TODO: Mechanism to avoid rate limiting.
+// TODO: Handle edge case where old deleted users are present in table but not in the response.
 // TODO: Refactor to increase re-usability and get rid of so many nested loops.
+// TODO: Mechanism to avoid rate limiting.
+// TODO: Persist delta links.

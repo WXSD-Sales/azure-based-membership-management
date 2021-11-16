@@ -13,14 +13,23 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Preconnects -->
-{{--    <link rel="preconnect" href="">--}}
+    {{--    <link rel="preconnect" href="">--}}
 
-<!-- Fonts -->
-{{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
-{{-- <link href="" rel="stylesheet"> --}}
+    <!-- Fonts -->
+    {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
+    {{-- <link href="" rel="stylesheet"> --}}
 
-<!-- Styles -->
+    <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('images/favicons/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicons/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicons/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{asset('images/favicons/site.webmanifest')}}">
+    <link rel="mask-icon" href="{{asset('images/favicons/safari-pinned-tab.svg')}}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     <style>
         @yield('css')
@@ -168,7 +177,7 @@
 <footer class="footer has-background-white">
     <div class="content has-text-centered">
         <p>
-            <strong>Azure to Webex Group Sync</strong>
+            <strong>{{ env('APP_NAME') }}</strong>
             by <a href="https://github.com/WXSD-Sales">WXSD-Sales</a>.<br>
             &copy; {{ date('Y') }} Cisco Webex
         </p>

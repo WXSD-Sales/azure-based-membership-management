@@ -1,14 +1,32 @@
 <template>
     <section>
         <auth-hero />
-        <div class="columns is-centered is-mobile my-1 py-6">
+        <div class="columns is-centered is-multiline is-mobile my-1 py-6">
+            <div class="column is-four-fifths">
+                <div class="columns is-vcentered">
+                    <div class="column is-three-fifths has-text-centered-mobile is-subtitle">
+                        <p>{{ syncStatus }}</p>
+                    </div>
+                    <div class="column is-two-fifths">
+                        <b-button
+                            expanded
+                            :loading="isButtonLoading"
+                            size="is-medium"
+                            label="Sync Now"
+                            type="is-link"
+                            icon-right="sync"
+                            @click="performCrossSync"
+                        />
+                    </div>
+                </div>
+            </div>
             <div class="column is-four-fifths">
                 <b-table
                     :columns="columns"
                     :data="syncMappings"
                     :default-sort="['id']"
-                    :loading="tableIsLoading"
-                    :height="1024"
+                    :loading="isTableLoading"
+                    :height="900"
                     hoverable
                     sticky-header
                     detailed
@@ -128,43 +146,96 @@ export default {
         return {
             syncMappings: [],
             columns: [],
-            tableIsLoading: true
+            isTableLoading: true,
+            isButtonLoading: false,
+            syncStatus: ''
         }
     },
     created () {
-        window.axios
-            .get('/sync-mappings')
-            .then(response => {
-                function getSyncMapping (mapping) {
-                    return {
-                        id: parseInt(mapping.id),
-                        azureGroupId: mapping.azure_group_id,
-                        azureGroupName: mapping.azure_group.name,
-                        azureGroupUsers: mapping.azure_group.users.map(x => x.email).sort(),
-                        webexGroupId: mapping.webex_group_id,
-                        webexGroupName: mapping.webex_group.name,
-                        webexGroupUsers: mapping.webex_group.users.map(x => x.email).sort(),
-                        createdAt: mapping.created_at,
-                        updatedAt: mapping.updated_at
-                    }
-                }
-
-                this.syncMappings = response.data.map(o => getSyncMapping(o))
-            })
-            .catch(error => {
-                console.error(error)
-                this.$buefy.toast.open({
-                    duration: 5000,
-                    message: `${error}. You may retry after sometime.`,
-                    position: 'is-top',
-                    type: 'is-danger'
-                })
-            })
-            .finally(() => {
-                this.tableIsLoading = false
-            })
+        this.loadTable()
     },
-    methods: {}
+    methods: {
+        async retrieveAzureMemberships () {
+            const [retrieveAzureUsers, retrieveAzureGroups] = await Promise.all([
+                window.axios.get('/retrieveAzureUsers'),
+                window.axios.get('/retrieveAzureGroups')
+            ])
+
+            return retrieveAzureUsers.status === 200 && retrieveAzureGroups.status === 200
+        },
+        async retrieveWebexMemberships () {
+            const [retrieveWebexUsers, retrieveWebexGroups] = await Promise.all([
+                window.axios.get('/retrieveWebexUsers'),
+                window.axios.get('/retrieveWebexGroups')
+            ])
+
+            return retrieveWebexUsers.status === 200 && retrieveWebexGroups.status === 200
+        },
+        async performCrossSync () {
+            this.isButtonLoading = true
+
+            this.syncStatus = 'Retrieving Azure memberships...'
+            if (!(await this.retrieveAzureMemberships())) {
+                this.syncStatus = 'Failed to retrieve Azure memberships.'
+                this.isButtonLoading = false
+                return
+            }
+
+            this.syncStatus = 'Retrieving Webex memberships...'
+            if (!(await this.retrieveWebexMemberships())) {
+                this.syncStatus = 'Failed to retrieve Webex memberships.'
+                this.isButtonLoading = false
+                return
+            }
+
+            this.syncStatus = 'Performing cross sync...'
+            window.axios
+                .get('/performCrossSync')
+                .then(() => {
+                    this.syncStatus = `Last sync completed on ${new Date()}.`
+                })
+                .catch(() => {
+                    this.syncStatus = 'Failed to cross sync memberships.'
+                })
+                .finally(() => {
+                    this.isButtonLoading = false
+                    this.loadTable()
+                })
+        },
+        loadTable () {
+            this.isTableLoading = true
+            window.axios.get('/memberships')
+                .then(response => {
+                    function getSyncMapping (mapping) {
+                        return {
+                            id: parseInt(mapping.id),
+                            azureGroupId: mapping.azure_group_id,
+                            azureGroupName: mapping.azure_group.name,
+                            azureGroupUsers: mapping.azure_group.users.map(x => x.email).sort(),
+                            webexGroupId: mapping.webex_group_id,
+                            webexGroupName: mapping.webex_group.name,
+                            webexGroupUsers: mapping.webex_group.users.map(x => x.email).sort(),
+                            createdAt: mapping.created_at,
+                            updatedAt: mapping.updated_at
+                        }
+                    }
+
+                    this.syncMappings = response.data.map(o => getSyncMapping(o))
+                })
+                .catch(error => {
+                    console.error(error)
+                    this.$buefy.toast.open({
+                        duration: 5000,
+                        message: `${error}. You may retry after sometime.`,
+                        position: 'is-top',
+                        type: 'is-danger'
+                    })
+                })
+                .finally(() => {
+                    this.isTableLoading = false
+                })
+        }
+    }
 }
 </script>
 

@@ -38,23 +38,23 @@ class Kernel extends ConsoleKernel
             ->everyFifteenMinutes()
             ->withoutOverlapping();
 
-//        $schedule->job(new RetrieveAzureUsers())
-//            ->daily()
-//            ->withoutOverlapping();
-//        $schedule->job(new RetrieveAzureGroups())
-//            ->daily()
-//            ->withoutOverlapping();
-//
-//        $schedule->job(new RetrieveWebexUsers())
-//            ->daily()
-//            ->withoutOverlapping();
-//        $schedule->job(new RetrieveWebexGroups())
-//            ->daily()
-//            ->withoutOverlapping();
-//
-//        $schedule->job(new PerformCrossSync())
-//            ->daily()
-//            ->withoutOverlapping();
+        $schedule->job(new RetrieveAzureUsers())
+            ->daily()
+            ->withoutOverlapping();
+        $schedule->job(new RetrieveAzureGroups())
+            ->daily()
+            ->withoutOverlapping();
+
+        $schedule->job(new RetrieveWebexUsers())
+            ->daily()
+            ->withoutOverlapping();
+        $schedule->job(new RetrieveWebexGroups())
+            ->daily()
+            ->withoutOverlapping();
+
+        $schedule->job(new PerformCrossSync())
+            ->daily()
+            ->withoutOverlapping();
     }
 
     /**

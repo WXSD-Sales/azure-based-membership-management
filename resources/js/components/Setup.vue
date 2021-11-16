@@ -107,6 +107,7 @@
                                 >
                                     <b-input
                                         size="is-large"
+                                        type="password"
                                         disabled
                                         readonly
                                         :value="azure"
@@ -127,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- WebexChannel -->
+                <!-- Webex -->
                 <div
                     v-if="isEmailSet && isAzureSet"
                     class="columns is-mobile mb-4 pb-4"
@@ -148,7 +149,7 @@
                             v-if="!webex && !error['webex']"
                             class="block"
                         >
-                            Click the button to authorize this application on Azure.
+                            Click the button to authorize this application on Webex.
                         </p>
                         <p
                             v-if="error['webex']"
@@ -167,6 +168,7 @@
                                 >
                                     <b-input
                                         size="is-large"
+                                        type="password"
                                         disabled
                                         readonly
                                         :value="webex"

@@ -79,3 +79,5 @@ class RefreshWebexToken implements ShouldQueue, ShouldBeUnique
         }
     }
 }
+
+// TODO: More selective query to retrieve current superadmin.

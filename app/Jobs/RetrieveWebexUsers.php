@@ -73,7 +73,7 @@ class RetrieveWebexUsers implements ShouldQueue
         } while ($response->successful() && $link !== '');
 
         WebexUser::destroy(array_diff($local_ids, $remote_ids));
-
-        // TODO: Mechanism to avoid rate limiting.
     }
 }
+
+// TODO: Mechanism to avoid rate limiting.

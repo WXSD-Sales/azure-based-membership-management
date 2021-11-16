@@ -32,19 +32,19 @@ class DashboardController extends Controller
         return view('dashboard');
     }
 
-    public function getSyncMappings(){
+    public function getMappings(){
         return SyncMapping::with(['azureGroup.users', 'webexGroup.users'])
             ->get()
             ->toArray();
     }
 
-    public function getAzureSyncMappings(){
+    public function getAzureMemberships(){
         return AzureGroup::with(['syncMapping'])
             ->get()
             ->toArray();
     }
 
-    public function getWebexSyncMappings(){
+    public function getWebexMemberships(){
         return WebexGroup::with(['syncMapping'])
             ->get()
             ->toArray();

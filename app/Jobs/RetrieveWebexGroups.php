@@ -38,8 +38,6 @@ class RetrieveWebexGroups implements ShouldQueue
     {
         $this->handleGroups();
         $this->handleMemberships();
-
-        // TODO: Mechanism to avoid rate limiting.
     }
 
     public function handleGroups(): void
@@ -142,3 +140,5 @@ class RetrieveWebexGroups implements ShouldQueue
         WebexMembership::destroy(array_diff($local_webex_membership_ids, $remote_webex_membership_ids));
     }
 }
+
+// TODO: Mechanism to avoid rate limiting.

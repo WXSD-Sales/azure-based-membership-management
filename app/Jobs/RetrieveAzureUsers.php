@@ -82,9 +82,9 @@ class RetrieveAzureUsers implements ShouldQueue
                 }
             }
         } while ($response->successful() && !empty($response['value']));
-
-        // TODO: Handle edge case where old deleted users are present in table
-        //       but not using delta link.
-        // TODO: Mechanism to avoid rate limiting.
     }
 }
+
+// TODO: Handle edge case where old deleted users are present in table but not using delta link.
+// TODO: Mechanism to avoid rate limiting.
+// TODO: Persist delta links.

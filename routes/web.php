@@ -24,50 +24,39 @@ Route::name('dashboard')->get('/dashboard', [
     'index'
 ]);
 
-Route::name('sync-mappings')->get('/sync-mappings', [
+Route::name('memberships')->get('/memberships', [
     DashboardController::class,
-    'getSyncMappings'
+    'getMappings'
 ]);
 
-Route::name('azure-sync-mappings')->get('/azure-sync-mappings', [
+Route::name('azure.memberships')->get('/azure/memberships', [
     DashboardController::class,
-    'getAzureSyncMappings'
+    'getAzureMemberships'
 ]);
 
-Route::name('webex-sync-mappings')->get('/webex-sync-mappings', [
+Route::name('webex.memberships')->get('/webex/memberships', [
     DashboardController::class,
-    'getWebexSyncMappings'
+    'getWebexMemberships'
 ]);
 
-Route::name('webex-groups')->get('/webex-groups', [
-    DashboardController::class,
-    'getWebexGroups'
-]);
-
-Route::name('azure-groups')->get('/azure-groups', [
+Route::name('azure.groups')->get('/azure/groups', [
     DashboardController::class,
     'getAzureGroups'
 ]);
 
-Route::name('azure-users')->get('/azure-users', [
+Route::name('webex.groups')->get('/webex/groups', [
+    DashboardController::class,
+    'getWebexGroups'
+]);
+
+Route::name('azure.users')->get('/azure/users', [
     DashboardController::class,
     'getAzureUsers'
 ]);
 
-Route::name('webex-users')->get('/webex-users', [
+Route::name('webex.users')->get('/webex/users', [
     DashboardController::class,
     'getWebexUsers'
-]);
-
-
-Route::name('setup')->get('/setup', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'showRegistrationForm'
-]);
-
-Route::post('/setup', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'register'
 ]);
 
 Route::get('/refreshAzureToken', [

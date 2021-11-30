@@ -93,13 +93,13 @@ Then open and new terminal window and follow the instructions below.
    ```
 
 8. Run the Scheduler locally  
-   This command will run in the foreground and invoke the scheduler every minute until you terminate the command:
+   This command will run in the foreground and invoke the scheduler every minute until you terminate the command. In a new terminal window:
    ```
    ./vendor/bin/sail php artisan schedule:work
    ```
 
 9. Run the Queue Worker  
-   Start a queue worker and process new jobs as they are pushed onto the queue. This command will continue to run until it is manually stopped or you close your terminal:
+   Start a queue worker and process new jobs as they are pushed onto the queue. This command will continue to run until it is manually stopped or you close your terminal. In a new terminal window:
    ```
    ./vendor/bin/sail php artisan queue:work
    ```

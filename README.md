@@ -28,11 +28,6 @@ These processes, collectively, retrieve and compare membership details across th
 
 Finally, the application utilizes a Webex Bot account to create, update or delete teams on Webex, as required. Of course, this is an over-simplification of the steps involved. For example, syncing large orgs with thousands of users can be particularly time-consuming. However, this POC can be modified to account for many such scenarios.
 
-<p align="center">
-   <img src="https://user-images.githubusercontent.com/6129517/144120962-49106d4c-727d-41ce-99ee-de6fb01ba1db.gif" alt="azure-to-webex-group-sync-overview"/>
-</p>
-
-
 ## Setup
 
 These instructions assume that you have:

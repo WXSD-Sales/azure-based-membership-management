@@ -114,4 +114,4 @@ A video where I demo this PoC is available on YouTube — https://www.youtube.co
 
 ## Support
 
-Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=ashessin@cisco.com&subject=Azure%20Group%20Sync).
+Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=ashessin@cisco.com&subject=Azure%20Group%20Sync) or caontact me on Webex (ashessin@cisco.com).

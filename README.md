@@ -32,7 +32,7 @@ Finally, the application utilizes a Webex Bot account to create, update or delet
 
 These instructions assume that you have:
  - Administrator access to an Azure AD Tenant and Webex Control Hub.
- - Configured the pre-existing SCIM based connector to automatically provision and de-provision users to Webex. Future versions of the project may not need this, but for now, please complete either of these tutorials first:
+ - Configured the SCIM based connector to automatically provision and de-provision users to Webex. Future versions of the project may not need this, but for now, please complete either of these tutorials first:
    - [Tutorial: Configure Cisco Webex for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
    - [Synchronize Azure Active Directory Users into Control Hub](https://help.webex.com/en-US/article/6ta3gz/Synchronize-Azure-Active-Directory-Users-into-Control-Hub)
  - [Docker installed](https://docs.docker.com/engine/install/) and running on a Windows (via WSL2), macOS, or Linux machine.
@@ -50,7 +50,7 @@ Then open and new terminal window and follow the instructions below.
    ```
    
 3. Review and follow the [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) guide.
-   - Your registration must have the following Microsoft Graph API permissions:
+   - Select the following [Microsoft Graph API permissions](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#delegated-permission-to-microsoft-graph):
       | API / Permissions name | Type      | Description                                         |
       |------------------------|-----------|-----------------------------------------------------|
       | Directory.Read.All     | Delegated | Read directory data                                 |
@@ -62,17 +62,21 @@ Then open and new terminal window and follow the instructions below.
       | profile                | Delegated | View users' basic profile                           |
       | User.Read              | Delegated | Sign in and read user profile                       |
       | User.Read.All          | Delegated | Read all users' full profiles                       |
-   - Additionally, use `http://localhost/auth/azure/callback` and `https://localhost/auth/azure/callback` as the redirect URLs.
+   - Use these [Redirect URIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri):
+     - `https://localhost/auth/azure/callback` 
+     - `http://localhost/auth/azure/callback`
    - Take note of your [Azure Tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant), Application ID and, Client Secret. Assign these values to the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables within the `.env` file respectively.
 
 4. Review and follow the [Registering your Integration
  on Webex](https://developer.webex.com/docs/integrations#registering-your-integration) guide.
-   - Your registration must have the following Webex REST API scopes:
+   - Your registration must have the following [Webex REST API scopes](https://developer.webex.com/docs/integrations#scopes):
       | Scope                   | Description                                   |
       |-------------------------|-----------------------------------------------|
       | spark-admin:people_read | Access to read your user's company directory  |
       | spark:kms               | Permission to interact with encrypted content |
-   - Additionally, use `http://localhost/auth/webex/callback` and `https://localhost/auth/webex/callback` as the redirect URLs.
+   - Use these Redirect URIs: 
+     - `https://localhost/auth/webex/callback`
+     - `http://localhost/auth/webex/callback`
    - Take note of your Client ID and Client Secret. Assign these values to the `WEBEX_CLIENT_ID` and `WEBEX_CLIENT_SECRET` environment variables within the `.env` file respectively.
 
 5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide. Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and `WEBEX_BOT_TOKEN` environment variables within the `.env` file respectively.

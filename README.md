@@ -1,6 +1,6 @@
 Azure Group Sync
 ================
-Synchronize your Microsoft Azure AD groups to Cisco Webex
+**Synchronize your Microsoft Azure AD groups to Cisco Webex.**
 
 This is a a proof-of-concept application that automatically syncs Azure Active Directory groups to Webex.
 The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization.
@@ -12,6 +12,8 @@ At it's core, the application is a collection of background processes that run o
 These processes, collectively, retrieve and compare membership details across the two platforms; treating AD groups as the source. 
 
 Finally, the application utilizes a Webex Bot account to create, update or delete teams on Webex, as required. Of course, this is an over-simplification of the steps involved. For example, syncing large orgs with thousands of users can be particularly time-consuming. However, this POC can be modified to account for many such scenarios.
+
+![azure-to-webex-group-sync](https://user-images.githubusercontent.com/6129517/144120962-49106d4c-727d-41ce-99ee-de6fb01ba1db.gif)
 
 
 ## Setup

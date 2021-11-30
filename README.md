@@ -5,6 +5,21 @@ Azure Group Sync
 This is a a proof-of-concept application that automatically syncs Azure Active Directory groups to Webex.
 The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization.
 
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/6129517/144125345-dda6e239-a271-478e-ac41-ac28d74832a6.gif" alt="azure-group-sync-demo"/>
+</p>
+
+<!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->
+<details>
+<summary>Table of Contents (click to expand)</summary>
+    
+  * [Overview](#overview)
+  * [Setup](#setup)
+  * [Demo](#demo)
+  * [Support](#support)
+
+</details>
+<!-- ⛔️ MD-MAGIC-EXAMPLE:END -->
 
 ## Overview
 At it's core, the application is a collection of background processes that run on a predefined schedule.
@@ -13,17 +28,21 @@ These processes, collectively, retrieve and compare membership details across th
 
 Finally, the application utilizes a Webex Bot account to create, update or delete teams on Webex, as required. Of course, this is an over-simplification of the steps involved. For example, syncing large orgs with thousands of users can be particularly time-consuming. However, this POC can be modified to account for many such scenarios.
 
-![azure-to-webex-group-sync](https://user-images.githubusercontent.com/6129517/144120962-49106d4c-727d-41ce-99ee-de6fb01ba1db.gif)
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/6129517/144120962-49106d4c-727d-41ce-99ee-de6fb01ba1db.gif" alt="azure-to-webex-group-sync-overview"/>
+</p>
 
 
 ## Setup
 
 These instructions assume that you have:
  - Administrator access to an Azure AD Tenant and Webex Control Hub.
- - Configured the pre-existing SCIM based connector to automatically provision and de-provision users to Webex. A Future version of the project may not need this, but for now, please complete either of these tutorials first:
+ - Configured the pre-existing SCIM based connector to automatically provision and de-provision users to Webex. Future versions of the project may not need this, but for now, please complete either of these tutorials first:
    - [Tutorial: Configure Cisco Webex for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
    - [Synchronize Azure Active Directory Users into Control Hub](https://help.webex.com/en-US/article/6ta3gz/Synchronize-Azure-Active-Directory-Users-into-Control-Hub)
  - [Docker installed](https://docs.docker.com/engine/install/) and running on a Windows (via WSL2), macOS, or Linux machine.
+
+Then open and new terminal window and follow the instructions below.
 
 1. Clone this repository and change directory:
    ```
@@ -87,3 +106,13 @@ These instructions assume that you have:
    ```
 
 Lastly, navigate to `http://localhost` in your browser to complete the setup (you will be asked to login to Azure and Webex).
+
+
+## Demo
+
+A video where I demo this PoC is available on YouTube — https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s.
+
+
+## Support
+
+Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=ashessin@cisco.com&subject=Azure%20Group%20Sync).

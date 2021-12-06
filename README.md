@@ -6,7 +6,7 @@ This is a a proof-of-concept application that syncs Azure Active Directory group
 The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization.
 
 <p align="center">
-   <img src="https://user-images.githubusercontent.com/6129517/144125345-dda6e239-a271-478e-ac41-ac28d74832a6.gif" alt="azure-group-sync-demo"/>
+   <a href="https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s"><img src="https://user-images.githubusercontent.com/6129517/144125345-dda6e239-a271-478e-ac41-ac28d74832a6.gif" alt="azure-group-sync-demo"/></a>
 </p>
 
 <!-- ⛔️ MD-MAGIC-EXAMPLE:START (TOC:collapse=true&collapseText=Click to expand) -->

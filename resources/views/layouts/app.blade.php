@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Guaranteed Paid Internship Program - UIC">
-    <meta name="keywords" content="internship,uic,undergrad,transfer,freshmen,students">
+    <meta name="description" content="Synchronize your Microsoft Azure Active Directory groups to Cisco Webex teams.">
+    <meta name="keywords" content="users,groups,webex,azure,sync,moderation">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} | Webex by Cisco</title>
 
     <!-- Preconnects -->
     {{--    <link rel="preconnect" href="">--}}
@@ -91,7 +91,7 @@
                 <div class="navbar-item">
                     @guest
                         @if (Route::has('setup'))
-                            <a class="button is-link is-fullwidth {{ Request::is('setup') ? 'is-active' : '' }}"
+                            <a class="button is-link is-fullwidth is-rounded {{ Request::is('setup') ? 'is-active' : '' }}"
                                href="{{ route('setup') }}">
                                 <span class="icon"><i class="mdi mdi-cog"> </i></span>
                                 <span>{{ __('Setup') }}</span>
@@ -179,7 +179,7 @@
         <p>
             <strong>{{ env('APP_NAME') }}</strong>
             by <a href="https://github.com/WXSD-Sales">WXSD-Sales</a>.<br>
-            &copy; {{ date('Y') }} Cisco Webex
+            &copy; {{ date('Y') }} Webex by Cisco
         </p>
     </div>
 </footer>

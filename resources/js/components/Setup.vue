@@ -44,9 +44,10 @@
                                         icon="email"
                                         name="email"
                                         type="email"
+                                        custom-class="is-rounded"
                                         :value="email"
-                                        required
                                         :disabled="isEmailSet"
+                                        required
                                     />
                                 </b-field>
                             </div>
@@ -59,6 +60,7 @@
                                     native-type="submit"
                                     size="is-large"
                                     icon-right="chevron-right"
+                                    class="is-rounded"
                                     expanded
                                 >
                                     Next
@@ -108,14 +110,15 @@
                                     <b-input
                                         size="is-large"
                                         type="password"
+                                        custom-class="is-rounded"
+                                        :value="azure"
                                         disabled
                                         readonly
-                                        :value="azure"
                                     />
                                 </b-field>
                                 <a
                                     v-else
-                                    class="button is-large is-fullwidth is-link"
+                                    class="button is-large is-fullwidth is-link is-rounded"
                                     :href="url['azure']"
                                 >
                                     <img
@@ -169,14 +172,15 @@
                                     <b-input
                                         size="is-large"
                                         type="password"
+                                        custom-class="is-rounded"
+                                        :value="webex"
                                         disabled
                                         readonly
-                                        :value="webex"
                                     />
                                 </b-field>
                                 <a
                                     v-else
-                                    class="button is-large is-fullwidth is-link"
+                                    class="button is-large is-fullwidth is-link is-rounded"
                                     :href="url['webex']"
                                 >
                                     <img
@@ -208,6 +212,7 @@
                             native-type="submit"
                             size="is-large"
                             icon-left="restore"
+                            class="is-rounded"
                             expanded
                         >
                             Reset
@@ -229,6 +234,7 @@
                             native-type="submit"
                             size="is-large"
                             icon-right="chevron-right"
+                            class="is-rounded"
                             expanded
                         >
                             Finish

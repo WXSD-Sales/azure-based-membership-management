@@ -160,7 +160,7 @@ class RegisterController extends Controller
         try {
             $identity = (array)$provider->user();
         } catch (Exception $e) {
-
+            Log::error($e);
         }
 
         return Validator::make($identity, [

@@ -15,6 +15,7 @@
                             label="Sync Now"
                             type="is-link"
                             icon-right="sync"
+                            class="is-rounded"
                             @click="performCrossSync"
                         />
                     </div>
@@ -105,6 +106,7 @@
                             <b-button
                                 icon-right="information"
                                 label=""
+                                class="is-rounded"
                                 type="is-link is-light"
                             />
                         </b-tooltip>
@@ -119,6 +121,8 @@
                                 :closable="false"
                                 type="is-link is-light"
                                 disabled
+                                rounded
+                                class="is-rounded"
                             />
                         </b-field>
                         <b-field
@@ -130,6 +134,7 @@
                                 :closable="false"
                                 type="is-link is-light"
                                 disabled
+                                rounded
                             />
                         </b-field>
                     </template>

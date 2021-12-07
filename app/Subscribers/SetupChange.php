@@ -4,7 +4,6 @@ namespace App\Subscribers;
 
 use App\Events\SetupDone;
 use App\Events\SetupUndone;
-use App\Jobs\RetrieveWebexUsers;
 use App\Notifications\SetupChanged;
 use Illuminate\Auth\Events\Authenticated;
 use Illuminate\Support\Facades\Log;

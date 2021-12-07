@@ -49,6 +49,7 @@
                                     native-type="submit"
                                     size="is-large"
                                     icon-right="chevron-right"
+                                    class="is-rounded"
                                     expanded
                                 >
                                     Login

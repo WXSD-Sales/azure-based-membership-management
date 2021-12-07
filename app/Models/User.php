@@ -103,13 +103,13 @@ class User extends Authenticatable
         return $this->hasMany(OAuth::class);
     }
 
-    public function webex()
-    {
-        return $this->belongsTo(WebexUser::class);
-    }
-
     public function azure()
     {
         return $this->belongsTo(AzureUser::class);
+    }
+
+    public function webex()
+    {
+        return $this->belongsTo(WebexUser::class);
     }
 }

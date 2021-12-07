@@ -24,6 +24,56 @@ Route::name('dashboard')->get('/dashboard', [
     'index'
 ]);
 
+Route::name('login')->get('/login', [
+    App\Http\Controllers\Auth\LoginController::class,
+    'showLoginForm'
+]);
+Route::post('/login', [
+    App\Http\Controllers\Auth\LoginController::class,
+    'login'
+]);
+
+Route::name('logout')->post('/logout', [
+    App\Http\Controllers\Auth\LoginController::class,
+    'logout'
+]);
+Route::name('reset')->post('/reset', [
+    App\Http\Controllers\Auth\LoginController::class,
+    'logout'
+]);
+
+Route::name('setup')->get('/setup', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'showRegistrationForm'
+]);
+Route::post('/setup', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'register'
+]);
+
+Route::name('auth.email')->post('/auth/email/redirect', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'emailOauthRedirect'
+]);
+
+Route::name('auth.azure')->get('/auth/azure/redirect', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'azureOauthRedirect'
+]);
+Route::get('/auth/azure/callback', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'azureOauthCallback'
+]);
+
+Route::name('auth.webex')->get('/auth/webex/redirect', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'webexOauthRedirect'
+]);
+Route::get('/auth/webex/callback', [
+    App\Http\Controllers\Auth\RegisterController::class,
+    'webexOauthCallback'
+]);
+
 Route::name('memberships')->get('/memberships', [
     DashboardController::class,
     'getMappings'
@@ -93,47 +143,3 @@ Route::get('/retrieveWebexUsers', [
     App\Http\Controllers\JobsController::class,
     'retrieveWebexUsers'
 ]);
-
-Route::name('login')->get('/login', [
-    App\Http\Controllers\Auth\LoginController::class,
-    'showLoginForm'
-]);
-Route::post('/login', [
-    App\Http\Controllers\Auth\LoginController::class,
-    'login'
-]);
-
-Route::name('logout')->post('/logout', [
-    App\Http\Controllers\Auth\LoginController::class,
-    'logout'
-]);
-Route::name('reset')->post('/reset', [
-    App\Http\Controllers\Auth\LoginController::class,
-    'logout'
-]);
-
-
-Route::name('auth.email')->post('/auth/email/redirect', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'emailOauthRedirect'
-]);
-
-Route::name('auth.azure')->get('/auth/azure/redirect', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'azureOauthRedirect'
-]);
-Route::get('/auth/azure/callback', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'azureOauthCallback'
-]);
-
-Route::name('auth.webex')->get('/auth/webex/redirect', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'webexOauthRedirect'
-]);
-Route::get('/auth/webex/callback', [
-    App\Http\Controllers\Auth\RegisterController::class,
-    'webexOauthCallback'
-]);
-
-

@@ -2,11 +2,11 @@ Azure Group Sync
 ================
 **Synchronize your Microsoft Azure AD groups to teams on Cisco Webex.**
 
-This is a a proof-of-concept application that syncs Azure Active Directory groups to teams on Webex.
+This is a proof-of-concept application that syncs Azure Active Directory groups to teams on Webex.
 The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization.
 
 <p align="center">
-   <a href="https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s" target="_blank" alt="See the video demo.">
+   <a href="https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s" target="_blank">
        <img src="https://user-images.githubusercontent.com/6129517/144125345-dda6e239-a271-478e-ac41-ac28d74832a6.gif" alt="azure-group-sync-demo"/>
     </a>
 </p>
@@ -116,4 +116,4 @@ A video where I demo this PoC is available on YouTube — https://www.youtube.co
 
 ## Support
 
-Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=ashessin@cisco.com&subject=Azure%20Group%20Sync) or caontact me on Webex (ashessin@cisco.com).
+Please reach out to the WXSD team at [wxsd@external.cisco.com](mailto:wxsd@external.cisco.com?cc=ashessin@cisco.com&subject=Azure%20Group%20Sync) or contact me on Webex (ashessin@cisco.com).

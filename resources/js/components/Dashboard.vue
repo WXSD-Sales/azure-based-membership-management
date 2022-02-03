@@ -11,6 +11,7 @@
                         <b-button
                             expanded
                             :loading="isButtonLoading"
+                            :disabled="isButtonLoading || isTableLoading"
                             size="is-medium"
                             label="Sync Now"
                             type="is-link"
@@ -51,9 +52,24 @@
                         searchable
                         sortable
                     >
-                        <div :title="props.row.azureGroupId">
-                            {{ props.row.azureGroupId.slice(-7) }}
-                        </div>
+                        <b-field>
+                            <b-input
+                                type="search"
+                                :value="props.row.azureGroupId"
+                                size="is-small"
+                                rounded
+                                disabled
+                            />
+                            <p class="control">
+                                <b-button
+                                    type="is-link is-light"
+                                    icon-right="content-copy"
+                                    size="is-small"
+                                    rounded
+                                    @click="copyToClipBoard(props.row.azureGroupId)"
+                                />
+                            </p>
+                        </b-field>
                     </b-table-column>
                     <b-table-column
                         v-slot="props"
@@ -62,9 +78,24 @@
                         searchable
                         sortable
                     >
-                        <div :title="props.row.webexGroupId">
-                            {{ props.row.webexGroupId.slice(-7) }}
-                        </div>
+                        <b-field>
+                            <b-input
+                                type="search"
+                                :value="props.row.webexGroupId"
+                                size="is-small"
+                                rounded
+                                disabled
+                            />
+                            <p class="control">
+                                <b-button
+                                    type="is-link is-light"
+                                    icon-right="content-copy"
+                                    size="is-small"
+                                    rounded
+                                    @click="copyToClipBoard(props.row.webexGroupId)"
+                                />
+                            </p>
+                        </b-field>
                     </b-table-column>
                     <b-table-column
                         v-slot="props"
@@ -92,6 +123,7 @@
                         v-slot="props"
                         label="Details"
                         width="50"
+                        centered
                     >
                         <b-tooltip
                             type="is-light"
@@ -105,9 +137,9 @@
                             </template>
                             <b-button
                                 icon-right="information"
-                                label=""
                                 class="is-rounded"
                                 type="is-link is-light"
+                                size="is-small"
                             />
                         </b-tooltip>
                     </b-table-column>
@@ -119,10 +151,10 @@
                             <b-taginput
                                 v-model="props.row.azureGroupUsers"
                                 :closable="false"
+                                class="is-rounded"
                                 type="is-link is-light"
                                 disabled
                                 rounded
-                                class="is-rounded"
                             />
                         </b-field>
                         <b-field
@@ -160,6 +192,15 @@ export default {
         this.loadTable()
     },
     methods: {
+        copyToClipBoard (content) {
+            navigator.clipboard.writeText(content)
+            this.$buefy.toast.open({
+                duration: 1000,
+                message: 'Copied contents to clipboard!',
+                position: 'is-top',
+                type: 'is-success'
+            })
+        },
         async retrieveAzureMemberships () {
             const [retrieveAzureUsers, retrieveAzureGroups] = await Promise.all([
                 window.axios.get('/retrieveAzureUsers'),

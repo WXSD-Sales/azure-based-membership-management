@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Synchronize your Microsoft Azure Active Directory groups to Cisco Webex teams.">
+    <meta name="description" content="{{ env('APP_DESCRIPTION') }}">
     <meta name="keywords" content="users,groups,webex,azure,sync,moderation">
 
     <!-- CSRF Token -->
@@ -32,7 +32,6 @@
     <meta name="theme-color" content="#ffffff">
 
     <style>
-        @yield('css')
         @if(config('app.env') === 'local' && env('SHOW_OUTLINES'))
         * {
             outline: lightskyblue dashed 1px;

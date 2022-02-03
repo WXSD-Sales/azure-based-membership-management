@@ -37,6 +37,7 @@
                                         type="password"
                                         :value="token"
                                         required
+                                        rounded
                                     />
                                 </b-field>
                             </div>

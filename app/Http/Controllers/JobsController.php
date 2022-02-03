@@ -31,6 +31,7 @@ class JobsController extends Controller
         try{
             RefreshAzureToken::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -43,6 +44,7 @@ class JobsController extends Controller
         try{
             RefreshWebexToken::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -55,6 +57,7 @@ class JobsController extends Controller
         try{
             RetrieveAzureUsers::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -67,6 +70,7 @@ class JobsController extends Controller
         try{
             RetrieveAzureGroups::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -79,6 +83,7 @@ class JobsController extends Controller
         try{
             RetrieveWebexUsers::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -91,6 +96,7 @@ class JobsController extends Controller
         try{
             RetrieveWebexGroups::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 
@@ -103,6 +109,7 @@ class JobsController extends Controller
         try {
             PerformCrossSync::dispatchSync();
         } catch (Exception $e) {
+            Log::error($e);
             return response()->json(['status' => 'error'], 400);
         }
 

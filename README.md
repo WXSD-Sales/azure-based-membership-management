@@ -1,6 +1,6 @@
 Azure based Membership Management
 =================================
-**Auto Manage Team (or Space) Memberships on Webex with Azure AD Groups**
+**Auto Manage Team and Space Memberships on Webex with Azure AD Groups.**
 
 This is a proof-of-concept application that automatically links [Azure Active Directory groups](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) to corresponding [teams on Webex](https://developer.webex.com/docs/api/v1/teams) by creating those teams and then adding Webex users to them. For example:
 > Your organization has a group on Azure AD named `chicago-employees` for all subset of employees that are based in the city of Chicago. This PoC will automatically create a corresponding `chicago-employees` team on Webex and then add those employees to the team. As a result, Chicago based employees can collaborate seamlessly on Webex by creating [Spaces](https://help.webex.com/en-US/article/hk71r4/Webex-App-%7C-Create-a-space) without having an admin or group owner to manually add or remove members using their email id.

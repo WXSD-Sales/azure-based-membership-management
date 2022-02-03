@@ -50,11 +50,11 @@ class PerformCrossSync implements ShouldQueue
         $client = Http::withToken($webex_access_token)->baseUrl($webex_api_base_url);
 
         $webex_user_emails = WebexUser::select('email')->pluck('email')->toArray();
-        $azure_gropus = AzureGroup::get();
+        $azure_groups = AzureGroup::get();
         $sync_mappings = SyncMapping::get();
 
 
-        foreach ($azure_gropus as $azure_group) {
+        foreach ($azure_groups as $azure_group) {
             $sync_mapping = $sync_mappings
                 ->firstWhere('azure_group_id', '=', $azure_group->id);
 

@@ -10,21 +10,21 @@
 @import "~buefy/src/scss/buefy";
 
 #app, #app > .columns {
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 #app.container.is-fluid {
-  padding-left: 12px;
-  padding-right: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 nav.navbar.is-fixed-top{
-  box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
+    box-shadow: rgba(17, 17, 26, 0.1) 0 1px 0;
 }
 
 .table-wrapper.has-sticky-header {
-  padding-left: 0.7em;
-  padding-right: 0.7em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
 }
 
 .footer {

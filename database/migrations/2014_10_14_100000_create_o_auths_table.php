@@ -17,9 +17,9 @@ class CreateOAuthsTable extends Migration
             $table->string('id')->primary();
             $table->enum('provider', ['azure', 'webex']);
             $table->string('email');
-            $table->string('access_token', 4096);
+            $table->string('access_token', 10240);
             $table->timestamp('expires_at');
-            $table->string('refresh_token', 4096);
+            $table->string('refresh_token', 10240);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

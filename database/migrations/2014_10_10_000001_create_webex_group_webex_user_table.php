@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('email')->unique()->index();
-            $table->string('name')->nullable();
-            $table->string('azure_user_id');
+        Schema::create('webex_group_webex_user', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('webex_group_id');
             $table->string('webex_user_id');
-            $table->enum('role', ['superadmin', 'admin']);
-            $table->string('password')->nullable();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->rememberToken();
+            $table->boolean('is_moderator')->nullable();
+            $table->timestamp('synced_at');
             $table->timestamps();
 
-            $table->foreign('azure_user_id')->references('id')->on('azure_users')
+            $table->unique(['webex_group_id', 'webex_user_id']);
+
+            $table->foreign('webex_group_id')->references('id')->on('webex_groups')
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
             $table->foreign('webex_user_id')->references('id')->on('webex_users')
@@ -41,6 +39,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('webex_group_webex_user');
     }
-}
+};

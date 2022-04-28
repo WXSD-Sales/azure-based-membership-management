@@ -9,7 +9,6 @@ use App\Jobs\RetrieveAzureGroups;
 use App\Jobs\RetrieveAzureUsers;
 use App\Jobs\RetrieveWebexGroups;
 use App\Jobs\RetrieveWebexUsers;
-use App\Models\SyncMapping;
 use Exception;
 use Illuminate\Support\Facades\Log;
 

@@ -16,7 +16,6 @@ const mix = require('laravel-mix')
 mix
     .sass('resources/sass/app.scss', 'public/css')
     .js('resources/js/app.js', 'public/js').vue()
-    .browserSync({ proxy: 'localhost', open: false })
 
 require('laravel-mix-eslint')
 mix.eslint({ fix: true, extensions: ['js', 'vue'] })

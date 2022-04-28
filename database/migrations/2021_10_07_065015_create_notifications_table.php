@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAzureUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAzureUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('azure_users', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name')->nullable();
-            $table->string('email')->unique();
-            $table->timestamp('synced_at');
+        Schema::create('notifications', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('type');
+            $table->morphs('notifiable');
+            $table->text('data');
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAzureUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('azure_users');
+        Schema::dropIfExists('notifications');
     }
-}
+};

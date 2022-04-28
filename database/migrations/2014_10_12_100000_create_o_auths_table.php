@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOAuthsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -17,9 +17,9 @@ class CreateOAuthsTable extends Migration
             $table->string('id')->primary();
             $table->enum('provider', ['azure', 'webex']);
             $table->string('email');
-            $table->string('access_token', 10240);
+            $table->string('access_token', 7000);
             $table->timestamp('expires_at');
-            $table->string('refresh_token', 10240);
+            $table->string('refresh_token', 7000);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
@@ -38,4 +38,4 @@ class CreateOAuthsTable extends Migration
     {
         Schema::dropIfExists('o_auths');
     }
-}
+};

@@ -2,41 +2,12 @@
 
 namespace App\Models;
 
-use Eloquent;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 
-
-/**
- * App\Models\OAuth
- *
- * @property string $id
- * @property Model|Eloquent $provider
- * @property string $email
- * @property string $access_token
- * @property Carbon $expires_at
- * @property string $refresh_token
- * @property int $user_id
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property-read User $user
- * @method static Builder|OAuth newModelQuery()
- * @method static Builder|OAuth newQuery()
- * @method static Builder|OAuth query()
- * @method static Builder|OAuth whereAccessToken($value)
- * @method static Builder|OAuth whereCreatedAt($value)
- * @method static Builder|OAuth whereEmail($value)
- * @method static Builder|OAuth whereExpiresAt($value)
- * @method static Builder|OAuth whereId($value)
- * @method static Builder|OAuth whereProvider($value)
- * @method static Builder|OAuth whereRefreshToken($value)
- * @method static Builder|OAuth whereUpdatedAt($value)
- * @method static Builder|OAuth whereUserId($value)
- * @mixin Eloquent
- */
 class OAuth extends Model
 {
     use HasFactory;
@@ -46,9 +17,7 @@ class OAuth extends Model
     public $incrementing = false;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var string[]
+     * {@inheritdoc}
      */
     protected $fillable = [
         'id',

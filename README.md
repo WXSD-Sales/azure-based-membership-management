@@ -41,7 +41,8 @@ These instructions assume that you have:
    - [Synchronize Azure Active Directory Users into Control Hub](https://help.webex.com/en-US/article/6ta3gz/Synchronize-Azure-Active-Directory-Users-into-Control-Hub)
  - [Docker installed](https://docs.docker.com/engine/install/) and running on a Windows (via WSL2), macOS, or Linux machine.
 
-Then open and new terminal window and follow the instructions below.
+Open a new terminal window and follow the instructions below to setup the project locally for
+development/demo.
 
 1. Clone this repository and change directory:
    ```
@@ -95,7 +96,7 @@ Then open and new terminal window and follow the instructions below.
     composer install --ignore-platform-reqs
    ```
 
-7. Start the Docker development environment via [Laravel Sail](https://laravel.com/docs/8.x/sail):
+7. Start the Docker development environment via [Laravel Sail](https://laravel.com/docs/9.x/sail):
    ```
    ./vendor/bin/sail up -d
    ```
@@ -110,19 +111,19 @@ Then open and new terminal window and follow the instructions below.
    ./vendor/bin/sail npm install
    ```
 
-10. Run [Laravel Mix](https://laravel.com/docs/8.x/mix)  
+10. Run [Laravel Mix](https://laravel.com/docs/9.x/mix)  
     When you run this command, the application's CSS and JavaScript assets will be compiled and placed in the application's public directory:
     ```
     ./vendor/bin/sail npm run dev
     ```
 
-11. Run the Scheduler locally  
+11. Run the Scheduler locally (Optional)  
     This command will run in the foreground and invoke the scheduler every minute until you terminate the command. In a new terminal window:
     ```
     ./vendor/bin/sail php artisan schedule:work
     ```
 
-12. Run the Queue Worker  
+12. Run the Queue Worker (Optional)  
     Start a queue worker and process new jobs as they are pushed onto the queue. This command will continue to run until it is manually stopped or you close your terminal. In a new terminal window:
     ```
     ./vendor/bin/sail php artisan queue:work

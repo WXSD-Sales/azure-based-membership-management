@@ -1,8 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "wxsd/azure-based-membership-management",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Auto manage Team and Space memberships on Webex with Azure AD Groups.",
+    "keywords": ["webex", "azure", "active-directory", "microsoft-graph-api", "group-synchronization"],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.1",

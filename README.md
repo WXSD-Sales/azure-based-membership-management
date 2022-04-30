@@ -121,7 +121,7 @@ development/demo.
     ./vendor/bin/sail npm run dev
     ```
 
-Lastly, navigate to `http://localhost` in your browser to complete the setup (you will be asked to login to Azure and Webex).
+Lastly, navigate to `http://localhost` in your browser to complete the setup (you will be asked to login to Azure and Webex). To exit, execute `./vendor/bin/sail down` on the termainal.
 
 
 ## Demo

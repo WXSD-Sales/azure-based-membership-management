@@ -46,7 +46,7 @@ development/demo.
 
 1. Clone this repository and change directory:
    ```
-   git clone https://github.com/WXSD-Sales/azure-group-sync && cd azure-group-sync
+   git clone https://github.com/WXSD-Sales/azure-based-membership-management && cd azure-based-membership-management
    ```
    
 2. Rename `.env.local` file to `.env` (you may also change the database credentials within this renamed file):

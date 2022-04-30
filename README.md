@@ -49,9 +49,9 @@ development/demo.
    git clone https://github.com/WXSD-Sales/azure-group-sync && cd azure-group-sync
    ```
    
-2. Rename `.env.example` file to `.env` (you may also edit your database credentials within this renamed file):
+2. Rename `.env.local` file to `.env` (you may also change the database credentials within this renamed file):
    ```
-   mv .env.example .env
+   mv .env.local .env
    ```
    
 3. Review and follow the [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) guide.
@@ -86,7 +86,7 @@ development/demo.
 
 5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide. Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and `WEBEX_BOT_TOKEN` environment variables within the `.env` file respectively.
 
-6. Install Composer dependencies for the application.
+6. Install Composer dependencies for the application:
    ```
    docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -101,32 +101,24 @@ development/demo.
    ./vendor/bin/sail up -d
    ```
 
-8. Initialize the database for the application.
+8. Generate the [application key](https://laravel.com/docs/9.x/encryption#configuration):
+   ```
+   ./vendor/bin/sail php artisan key:generate
+   ```
+
+9. Initialize the database for the application:
    ```
    ./vendor/bin/sail php artisan migrate:fresh
    ```
 
-9. Install NPM dependencies for the application.
-   ```
-   ./vendor/bin/sail npm install
-   ```
+10. Install NPM dependencies for the application:
+    ```
+    ./vendor/bin/sail npm install
+    ```
 
-10. Run [Laravel Mix](https://laravel.com/docs/9.x/mix)  
-    When you run this command, the application's CSS and JavaScript assets will be compiled and placed in the application's public directory:
+11. Run [Laravel Mix](https://laravel.com/docs/9.x/mix):
     ```
     ./vendor/bin/sail npm run dev
-    ```
-
-11. Run the Scheduler locally (Optional)  
-    This command will run in the foreground and invoke the scheduler every minute until you terminate the command. In a new terminal window:
-    ```
-    ./vendor/bin/sail php artisan schedule:work
-    ```
-
-12. Run the Queue Worker (Optional)  
-    Start a queue worker and process new jobs as they are pushed onto the queue. This command will continue to run until it is manually stopped or you close your terminal. In a new terminal window:
-    ```
-    ./vendor/bin/sail php artisan queue:work
     ```
 
 Lastly, navigate to `http://localhost` in your browser to complete the setup (you will be asked to login to Azure and Webex).

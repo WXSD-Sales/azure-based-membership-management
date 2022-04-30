@@ -86,7 +86,7 @@ development/demo.
 
 5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide. Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and `WEBEX_BOT_TOKEN` environment variables within the `.env` file respectively.
 
-6. Install Composer dependencies for the application:
+6. [Install Composer dependencies for the application](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects):
    ```
    docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -106,7 +106,7 @@ development/demo.
    ./vendor/bin/sail php artisan key:generate
    ```
 
-9. Initialize the database for the application:
+9. Initialize the [database for the application](https://laravel.com/docs/9.x/migrations#drop-all-tables-migrate=):
    ```
    ./vendor/bin/sail php artisan migrate:fresh
    ```

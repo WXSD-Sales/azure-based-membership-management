@@ -71,7 +71,10 @@ development/demo.
    - Use these [Redirect URIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#add-a-redirect-uri):
      - `https://localhost/auth/azure/callback` 
      - `http://localhost/auth/azure/callback`
-   - Take note of your [Azure Tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant), Application ID and, Client Secret. Assign these values to the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables within the `.env` file respectively.
+   - Take note of your [Azure Tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant), 
+     Application ID and, Client Secret. Assign these values to the `AZURE_TENANT_ID`, 
+     `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables within the `.env.local` 
+     file respectively.
 
 4. Review and follow the [Registering your Integration
  on Webex](https://developer.webex.com/docs/integrations#registering-your-integration) guide.
@@ -83,9 +86,12 @@ development/demo.
    - Use these Redirect URIs: 
      - `https://localhost/auth/webex/callback`
      - `http://localhost/auth/webex/callback`
-   - Take note of your Client ID and Client Secret. Assign these values to the `WEBEX_CLIENT_ID` and `WEBEX_CLIENT_SECRET` environment variables within the `.env` file respectively.
+   - Take note of your Client ID and Client Secret. Assign these values to the `WEBEX_CLIENT_ID` 
+     and `WEBEX_CLIENT_SECRET` environment variables within the `.env.local` file respectively.
 
-5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide. Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and `WEBEX_BOT_TOKEN` environment variables within the `.env` file respectively.
+5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide.
+   Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and 
+   `WEBEX_BOT_TOKEN` environment variables within the `.env.local` file respectively.
 
 6. [Install Composer dependencies for the application](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects):
    ```
@@ -122,7 +128,8 @@ development/demo.
     ./vendor/bin/sail npm run dev
     ```
 
-Lastly, navigate to `http://localhost` in your browser to complete the setup (you will be asked to login to Azure and Webex). To exit, execute `./vendor/bin/sail down` on the termainal.
+Lastly, navigate to `http://localhost` in your browser to complete the setup. To stop, execute 
+`./vendor/bin/sail down` on the terminal.
 
 
 ## Demo

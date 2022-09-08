@@ -49,10 +49,9 @@ development/demo.
    git clone https://github.com/WXSD-Sales/azure-based-membership-management && cd azure-based-membership-management
    ```
 
-2. Copy `.env.local.example` file as `.env.local` (you may also change the database credentials
-   within this new file):
+2. Copy `.env.example` file as `.env` (you may also change the database credentials within this new file):
    ```
-   cp .env.local.example .env.local
+   cp .env.example .env
    ```
 
 3. Review and follow the [Quickstart: Register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app#register-an-application) guide.

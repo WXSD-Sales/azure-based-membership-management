@@ -72,7 +72,7 @@ development/demo.
      - `http://localhost/auth/azure/callback`
    - Take note of your [Azure Tenant ID](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-how-to-find-tenant), 
      Application ID and, Client Secret. Assign these values to the `AZURE_TENANT_ID`, 
-     `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables within the `.env.local` 
+     `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables within the `.env` 
      file respectively.
 
 4. Review and follow the [Registering your Integration
@@ -86,11 +86,11 @@ development/demo.
      - `https://localhost/auth/webex/callback`
      - `http://localhost/auth/webex/callback`
    - Take note of your Client ID and Client Secret. Assign these values to the `WEBEX_CLIENT_ID` 
-     and `WEBEX_CLIENT_SECRET` environment variables within the `.env.local` file respectively.
+     and `WEBEX_CLIENT_SECRET` environment variables within the `.env` file respectively.
 
 5. Review and follow the [Creating a Webex Bot](https://developer.webex.com/docs/bots#creating-a-webex-bot) guide.
    Take note of your Bot ID and Bot access token. Assign these values to the `WEBEX_BOT_ID` and 
-   `WEBEX_BOT_TOKEN` environment variables within the `.env.local` file respectively.
+   `WEBEX_BOT_TOKEN` environment variables within the `.env` file respectively.
 
 6. [Install Composer dependencies for the application](https://laravel.com/docs/9.x/sail#installing-composer-dependencies-for-existing-projects):
    ```

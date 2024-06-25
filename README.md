@@ -3,13 +3,13 @@ Azure based Membership Management
 **Auto manage Team and Space memberships on Webex with Azure AD Groups.**
 
 This is a proof-of-concept application that automatically links [Azure Active Directory group memberships](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) to corresponding [team memberships on Webex](https://developer.webex.com/docs/api/v1/teams) by creating those teams and then adding Webex users to them. For example:
-> Your organization has a group on Azure AD named `chicago-employees` for all subset of employees that are based in the city of Chicago. This PoC will automatically create a corresponding `chicago-employees` team on Webex and then add those employees to the team. As a result, Chicago based employees can collaborate seamlessly on Webex by creating [Spaces](https://help.webex.com/en-US/article/hk71r4/Webex-App-%7C-Create-a-space) without having an admin or group owner to manually add or remove members using their email id.
+> Your organization has an Azure AD group named **chicago-employees** for all employees based in Chicago. This PoC will automatically create a corresponding **chicago-employees** team on Webex and add those employees to it. As a result, Chicago-based employees can collaborate seamlessly on Webex by creating Spaces without an admin or group owner manually adding or removing members using their email IDs.
 
-The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization. The PoC supports [Dynamic and Assigned/Static Azure AD memberships](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#membership-types) as well as [Security and O365 Azure AD groups](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#group-types). It can further be customized to support Webex User account provisioning, etc.
+The target audience for this PoC are IT Administrators or group owners who want an effortless way to manage team memberships on Webex across their organization. The PoC supports [Dynamic and Assigned/Static Azure AD memberships](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#membership-types) as well as [Security and O365 Azure AD groups](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal#group-types).
 
 <p align="center">
-   <a href="https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s" target="_blank">
-       <img src="https://user-images.githubusercontent.com/6129517/144125345-dda6e239-a271-478e-ac41-ac28d74832a6.gif" alt="azure-group-sync-demo"/>
+   <a href="https://app.vidcast.io/share/0b200a83-b489-4757-9b9a-d6dd340c7f43" target="_blank">
+       <img src="https://github.com/wxsd-sales/azure-based-membership-management/assets/6129517/6396a084-6c30-4698-a26a-e9b3b19d44ee" alt="azure-based-membership-management-demo"/>
     </a>
 </p>
 
@@ -20,6 +20,8 @@ The target audience for this PoC are IT Administrators or group owners who want 
   * [Overview](#overview)
   * [Setup](#setup)
   * [Demo](#demo)
+  * [Disclaimer](#disclaimer)
+  * [License](#license)
   * [Support](#support)
 
 </details>
@@ -133,8 +135,18 @@ Lastly, navigate to `http://localhost` in your browser to complete the setup. To
 
 ## Demo
 
-A video where I demo this PoC is available on YouTube — https://www.youtube.com/watch?v=lKNUpkCK6uI&t=87s.
+A video where I demo this PoC is available on Vidcast — [https://app.vidcast.io/share/0b200a83-b489-4757-9b9a-d6dd340c7f43](https://app.vidcast.io/share/0b200a83-b489-4757-9b9a-d6dd340c7f43) 
+and Youtube — [https://youtu.be/lKNUpkCK6uI&t=87s](https://youtu.be/lKNUpkCK6uI&t=87s).
 
+## Disclaimer
+
+Everything included in this repository is for demo and Proof of Concept (PoC) purposes only. Use of the PoC is solely
+at your own risk. This project may contain links to external content, which we do not warrant, endorse, or assume
+liability for. This project is for Cisco Webex use-case, but is not official Cisco Webex branded project.
+
+## License
+
+[MIT](./LICENSE)
 
 ## Support
 
